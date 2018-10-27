@@ -1,42 +1,67 @@
-body {
-    background-image: url("../img/background.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: #ffffff4d;
+.body-background {
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #ffffff4d;
 }
-.loginf{
-   height: 100vh;
+
+.loginf {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 .login {
-    width: 400px;
-    background-color: #f6eeee99;
-    border: solid 2px;
-    border-color: #c9bfbfcc;
-    border-radius: 20px;
-    padding: 40px;
+  width: 400px;
+  background-color: #f6eeee99;
+  border: solid 2px;
+  border-color: #c9bfbfcc;
+  border-radius: 20px;
+  padding: 40px;
 }
-form small a{
+form small a {
   decoration: none;
 }
-
-nav {
-    border-bottom: solid rgba(255, 153, 0, 0.904) 3px;
+.navbar {
+  margin-bottom: 0;
 }
-
-.videoaula{
-   position: fixed;
-    left: 400px;
-}
-
-.panel{
-    overflow: scroll ;
-    width: 300px;
-    float: left;
-    height: 550px;
+.navbar-inverse {
+  background-color: black;
 
 }
-.panel-body{
-    padding : 10px
+.navbar-default{
+  border-radius: 0;
+  border-bottom: solid rgba(255, 153, 0, 0.904) 3px;
+}
+
+.videoaula {
+  position: fixed;
+  left: 400px;
+}
+
+.painel {
+  overflow: scroll;
+  width: 300px;
+  float: left;
+  height: 550px;
+}
+.painel-body {
+  padding: 10px;
+}
+
+.distancing-Top {
+  margin-top: 25px;
+}
+
+.new-module {
+  padding: 10px;
+}
+
+.tumble-upload {
+  width: 200px;
+  height: 200px;
+  margin: 3px;
 }

@@ -1,41 +1,39 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
-  modificaName,
-  modificaPassword,
-  modificaUsename
-} from "../actions/singupAction";
+  FormGroup, ControlLabel, FormControl, Button,
+} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { modificaName, modificaPassword, modificaUsename } from '../actions/singupAction';
 
 class SingUp extends Component {
   constructor(props) {
     super(props);
-    this.passwordhandle = this.passwordhandle.bind(this)
+    this.passwordhandle = this.passwordhandle.bind(this);
     this.state = {
-      retryPassword: ""
+      retryPassword: '',
     };
   }
 
-  getValidationState () {
-    const retryPassword = this.state.retryPassword;
-    const {password} = this.props;
+  getValidationState() {
+    const { retryPassword } = this.state;
+    const { password } = this.props;
 
-    if (retryPassword === password ) {
+    if (retryPassword === password) {
       return 'success';
-    } else {
-      return 'warning';
     }
-  };
-
-  passwordhandle = (e) => {
-    this.setState({ retryPassword: e.target.value })
-    
+    return 'warning';
   }
 
+  passwordhandle = (e) => {
+    this.setState({ retryPassword: e.target.value });
+  };
+
   render() {
+    const { username, name, password } = this.props;
     return (
-      <div>
+      <div className="body-background">
         <div className="loginf d-flex flex-column justify-content-center align-items-center">
           <div className="login aling-middle">
             <form>
@@ -43,35 +41,36 @@ class SingUp extends Component {
                 <ControlLabel>Name: </ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.props.name}
+                  value={name}
                   placeholder="Name"
                   onChange={e => this.props.modificaName(e.target.value)}
                 />
-              </FormGroup>{" "}
+              </FormGroup>
+              {' '}
               <FormGroup controlId="formInlineUser">
                 <ControlLabel>Username: </ControlLabel>
                 <FormControl
                   type="text"
-                  value={this.props.username}
+                  value={username}
                   placeholder="Username"
                   onChange={e => this.props.modificaUsename(e.target.value)}
                 />
-              </FormGroup>{" "}
-              <FormGroup
-                controlId="formInlinePassword"
-              >
+              </FormGroup>
+              {' '}
+              <FormGroup controlId="formInlinePassword">
                 <ControlLabel>Password: </ControlLabel>
                 <FormControl
                   type="password"
-                  value={this.props.password}
+                  value={password}
                   placeholder="password"
                   onChange={e => this.props.modificaPassword(e.target.value)}
                 />
-
-              </FormGroup>{" "}
+              </FormGroup>
+              {' '}
               <FormGroup
                 controlId="formInlineRetryPassword"
-                validationState={this.getValidationState()}>
+                validationState={this.getValidationState()}
+              >
                 <ControlLabel>Retry Password: </ControlLabel>
                 <FormControl
                   type="password"
@@ -79,8 +78,8 @@ class SingUp extends Component {
                   placeholder="retry password"
                   onChange={this.passwordhandle}
                 />
-              </FormGroup>{" "}
-
+              </FormGroup>
+              {' '}
               <Link to="/login">
                 <Button type="button" bsStyle="primary" bsSize="large" block>
                   Sing In
@@ -98,14 +97,29 @@ class SingUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  name: state.singupReducer.name
+  name: state.singupReducer.name,
 });
 
+SingUp.propTypes = {
+  password: PropTypes.string,
+  name: PropTypes.string,
+  username: PropTypes.string,
+  modificaName: PropTypes.func.isRequired,
+  modificaPassword: PropTypes.func.isRequired,
+  modificaUsename: PropTypes.func.isRequired,
+};
+/**
+SingUp.defaultProps = {
+  password: '',
+  name: '',
+  username: '',
+};
+*/
 export default connect(
   mapStateToProps,
   {
     modificaName,
     modificaUsename,
-    modificaPassword
-  }
+    modificaPassword,
+  },
 )(SingUp);

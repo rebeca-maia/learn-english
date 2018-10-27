@@ -1,28 +1,19 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import Login from "./views/login";
-import SingUp from "./views/SingUp";
-import "./App.css";
-import store from "./store";
-import ModuleBar from "./components/ModuleBar";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App">
-          <BrowserRouter>
-            <div>
-              <Route path="/login" component={Login} />
-              <Route path="/singup" component={SingUp} />
-              <Route path='/bar' component={ModuleBar}/>
-            </div>
-          </BrowserRouter>
-        </div>
-      </Provider>
-    );
-  }
-}
+import './App.css';
+import reducer from './reducers';
+import Routes from './routes';
+
+const store = createStore(reducer, {}, applyMiddleware(thunk));
+const App = () => (
+  <Provider store={store}>
+    <div className="App">
+      <Routes />
+    </div>
+  </Provider>
+);
 
 export default App;
