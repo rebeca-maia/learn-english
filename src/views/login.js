@@ -37,6 +37,7 @@ class Login extends Component {
 
   autenticauser(e) {
     e.preventDefault();
+    // eslint-disable-next-line no-shadow
     const { authenticati, history } = this.props;
     const { username, password } = this.state;
     authenticati({ username, password }, history);
@@ -71,7 +72,7 @@ class Login extends Component {
 
                 />
                 <small>
-                  <Link to="#">Forgot account?</Link>
+                  <Link to="/#">Forgot account?</Link>
                 </small>
               </FormGroup>
               <Button

@@ -23,16 +23,15 @@
   padding: 40px;
 }
 form small a {
-  decoration: none;
+  text-decoration: none;
 }
 .navbar {
   margin-bottom: 0;
 }
 .navbar-inverse {
   background-color: black;
-
 }
-.navbar-default{
+.navbar-default {
   border-radius: 0;
   border-bottom: solid rgba(255, 153, 0, 0.904) 3px;
 }
@@ -44,7 +43,7 @@ form small a {
 
 .painel {
   overflow: scroll;
-  width: 300px;
+  width: 20%;
   float: left;
   height: 550px;
 }
@@ -62,6 +61,28 @@ form small a {
 
 .tumble-upload {
   width: 200px;
-  height: 200px;
+  height: 120px;
   margin: 3px;
+}
+
+.courses {
+  left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.card-course {
+  margin: 10px;
+  width: 320px
+}
+
+.card-course-hover {
+  transform: scale(1.1);
+  margin-right: 10px;
+}
+
+.editor-class {
+  border: solid 1px #cccccce8;
+  height: 200px;
 }

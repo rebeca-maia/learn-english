@@ -16,7 +16,7 @@ export default class Lesson extends Component {
       <div>
         <Header />
         <ModuleBar />
-        <div className="videoaula d-flex flex-column justify-content-center align-items-center">
+        <div className="videoaula">
           <video width="720" height="410" controls="controls" src={uri}>
             <track kind="captions" />
           </video>
